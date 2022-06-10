@@ -55,21 +55,14 @@ async def quiz_2(call: types.CallbackQuery):
 
 @dp.callback_query_handler(lambda call: call.data == "button_call_2")
 async def quiz_3(call: types.CallbackQuery):
-    # question = 'ANSWER:'
-    # answers = [
-    # '2'
-    # ]
 
-    photo = open('media/photo.jpg', "rb")
+
+    photo = open('media/image.jpg', "rb")
     await bot.send_photo(call.message.chat.id, photo=photo)
     await bot.send_poll(
         chat_id=call.message.chat.id,
-        # question=question,
-        # options=answers,
         is_anonymous=False,
         type='quiz',
-        # correct_option_id=3,
-        # explanation="Кто не знает, тот л0х",
         explanation_parse_mode=ParseMode.MARKDOWN_V2,
     )
 
